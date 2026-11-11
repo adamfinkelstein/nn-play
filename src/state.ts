@@ -38,6 +38,7 @@ export let regularizations: {[key: string]: nn.RegularizationFunction} = {
 export let datasets: {[key: string]: dataset.DataGenerator} = {
   "circle": dataset.classifyCircleData,
   "xor": dataset.classifyXORData,
+  "corners": dataset.classifyXORCornersData,
   "gauss": dataset.classifyTwoGaussData,
   "spiral": dataset.classifySpiralData,
 };
@@ -134,23 +135,23 @@ export class State {
   ];
 
   [key: string]: any;
-  learningRate = 0.03;
+  learningRate = 0.3;
   regularizationRate = 0;
   showTestData = false;
-  noise = 0;
+  noise = 5;
   batchSize = 10;
   discretize = false;
   tutorial: string = null;
   percTrainData = 50;
-  activation = nn.Activations.TANH;
+  activation = nn.Activations.SIGMOID;
   regularization: nn.RegularizationFunction = null;
   problem = Problem.CLASSIFICATION;
   initZero = false;
   hideText = false;
   collectStats = false;
-  numHiddenLayers = 1;
+  numHiddenLayers = 0;
   hiddenLayerControls: any[] = [];
-  networkShape: number[] = [4, 2];
+  networkShape: number[] = [];
   x = true;
   y = true;
   xTimesY = false;
@@ -160,9 +161,21 @@ export class State {
   sinX = false;
   cosY = false;
   sinY = false;
-  dataset: dataset.DataGenerator = dataset.classifyCircleData;
+  dataset: dataset.DataGenerator = dataset.classifyXORCornersData;
   regDataset: dataset.DataGenerator = dataset.regressPlane;
   seed: string;
+  // COS 126: controls hidden by default; a URL can show one again, e.g. noise_hide=false.
+  learningRate_hide = true;
+  regularization_hide = true;
+  regularizationRate_hide = true;
+  problem_hide = true;
+  stepButton_hide = true;
+  dataset_hide = true;
+  percTrainData_hide = true;
+  noise_hide = true;
+  batchSize_hide = true;
+  regenerate_hide = true;
+  discretize_hide = true;
 
   /**
    * Deserializes the state from the url hash.

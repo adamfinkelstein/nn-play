@@ -65,11 +65,6 @@ interface InputFeature {
 let INPUTS: {[name: string]: InputFeature} = {
   "x": {f: (x, y) => x, label: "X_1"},
   "y": {f: (x, y) => y, label: "X_2"},
-  "xSquared": {f: (x, y) => x * x, label: "X_1^2"},
-  "ySquared": {f: (x, y) => y * y,  label: "X_2^2"},
-  "xTimesY": {f: (x, y) => x * y, label: "X_1X_2"},
-  "sinX": {f: (x, y) => Math.sin(x), label: "sin(X_1)"},
-  "sinY": {f: (x, y) => Math.sin(y), label: "sin(X_2)"},
 };
 
 let HIDABLE_CONTROLS = [
@@ -1034,6 +1029,11 @@ function hideControls() {
     }
     controls.style("display", "none");
   });
+  // COS 126: with all of its controls hidden, drop the data column too.
+  let dataControls = ["dataset", "percTrainData", "noise", "batchSize", "regenerate"];
+  if (dataControls.every(c => hiddenProps.indexOf(c) !== -1)) {
+    d3.select(".column.data").style("display", "none");
+  }
 
   // Also add checkbox for each hidable control in the "use it in classrom"
   // section.
@@ -1090,26 +1090,12 @@ function generateData(firstTime = false) {
 let firstInteraction = true;
 let parametersChanged = false;
 
+// COS 126: no Google Analytics, so these record nothing.
 function userHasInteracted() {
-  if (!firstInteraction) {
-    return;
-  }
   firstInteraction = false;
-  let page = 'index';
-  if (state.tutorial != null && state.tutorial !== '') {
-    page = `/v/tutorials/${state.tutorial}`;
-  }
-  ga('set', 'page', page);
-  ga('send', 'pageview', {'sessionControl': 'start'});
 }
 
 function simulationStarted() {
-  ga('send', {
-    hitType: 'event',
-    eventCategory: 'Starting Simulation',
-    eventAction: parametersChanged ? 'changed' : 'unchanged',
-    eventLabel: state.tutorial == null ? '' : state.tutorial
-  });
   parametersChanged = false;
 }
 

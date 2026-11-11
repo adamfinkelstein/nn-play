@@ -1,3 +1,20 @@
+# nn-play: a simplified Playground for COS 126
+
+A trimmed copy of [A Neural Network Playground](https://github.com/tensorflow/playground)
+for Princeton's COS 126 (Precept 19). Live at <https://adamfinkelstein.github.io/nn-play/>.
+
+* Opens ready for the precept: XOR as four corner clusters (the `corners` dataset, as on
+  the worksheet), sigmoid activation, learning rate 0.3, noise 5%, no hidden layers.
+* Shows only play/reset, activation (ReLU, sigmoid, linear), hidden layers and neurons,
+  the X1 and X2 features, and "Show test data". No header text, article, or analytics.
+* Every hidden control can be shown again from the URL, e.g. `#noise_hide=false`, and any
+  setting can be preset, e.g. `#noise=50&showTestData=true`.
+* `npm ci && npm run build` builds `dist/`; pushing to the `cos126` branch publishes it.
+
+The original README follows.
+
+---
+
 # Deep playground
 
 Deep playground is an interactive visualization of neural networks, written in

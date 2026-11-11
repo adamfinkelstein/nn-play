@@ -992,3 +992,14 @@ footer .links a:hover {
 #main-part .mdl-slider.is-upgraded:focus:not(:active)::-webkit-slider-thumb {
   box-shadow: 0 0 0 10px rgba(0,0,0, 0.12);
 }
+
+/* COS 126: one screen. The controls Precept 19 doesn't use are hidden by
+   default in state.ts (and can be shown again from the URL). */
+.github-link, .more, #article-text, .callout {
+  display: none !important;
+}
+header { padding: 14px 0; }
+header h1 { font-size: 28px; margin: 0; text-align: left; }
+header h1 .course { font-size: 16px; opacity: 0.7; margin-left: 12px; }
+footer.cos126 { padding: 16px 20px; font-size: 12px; color: #777; text-align: center; }
+footer.cos126 a { color: #555; }

@@ -207,6 +207,25 @@ export function classifyXORData(numSamples: number, noise: number):
 }
 
 /**
+ * COS 126: XOR as on the Precept 19 worksheet. Four clusters at the corners
+ * (x0, x1 in {0, 1} scaled to -3, +3); +1 when exactly one input is 1.
+ * Noise spreads the clusters until they overlap.
+ */
+export function classifyXORCornersData(numSamples: number, noise: number):
+    Example2D[] {
+  let variance = d3.scale.linear().domain([0, .5]).range([0.3, 4])(noise);
+  let points: Example2D[] = [];
+  [[0, 0], [0, 1], [1, 0], [1, 1]].forEach(([a, b]) => {
+    let label = a !== b ? 1 : -1;
+    for (let i = 0; i < numSamples / 4; i++) {
+      points.push({x: normalRandom(6 * a - 3, variance),
+                   y: normalRandom(6 * b - 3, variance), label});
+    }
+  });
+  return points;
+}
+
+/**
  * Returns a sample from a uniform [a, b] distribution.
  * Uses the seedrandom library as the random generator.
  */
