@@ -1006,7 +1006,7 @@ footer.cos126 a { color: #555; }
 
 /* COS 126: embed=true, a compact layout to fill a 16:9 slide (no footer: the slide
    credits the Playground). */
-body.embed header h1 { font-size: 22px; margin: 0; }
+body.embed header h1 { font-size: 22px; margin: 0 auto; }
 body.embed header { padding: 8px 0; }
 body.embed #top-controls { padding: 6px 0; }
 body.embed #main-part { margin-top: 14px; margin-bottom: 0; }
