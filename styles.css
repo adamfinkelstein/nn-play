@@ -1003,3 +1003,12 @@ header h1 { font-size: 28px; margin: 0; text-align: left; }
 header h1 .course { font-size: 16px; opacity: 0.7; margin-left: 12px; }
 footer.cos126 { padding: 16px 20px; font-size: 12px; color: #777; text-align: center; }
 footer.cos126 a { color: #555; }
+
+/* COS 126: embed=true, a compact layout to fill a 16:9 slide (no footer: the slide
+   credits the Playground). */
+body.embed header h1 { font-size: 22px; margin: 0; }
+body.embed header { padding: 8px 0; }
+body.embed #top-controls { padding: 6px 0; }
+body.embed #main-part { margin-top: 14px; margin-bottom: 0; }
+body.embed .colormap-legend, body.embed footer { display: none !important; }
+body.embed .column.output > div[style*="margin-top:20px"] { margin-top: 8px !important; }

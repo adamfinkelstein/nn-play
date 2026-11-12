@@ -131,7 +131,8 @@ export class State {
     {name: "tutorial", type: Type.STRING},
     {name: "problem", type: Type.OBJECT, keyMap: problems},
     {name: "initZero", type: Type.BOOLEAN},
-    {name: "hideText", type: Type.BOOLEAN}
+    {name: "hideText", type: Type.BOOLEAN},
+    {name: "embed", type: Type.BOOLEAN}
   ];
 
   [key: string]: any;
@@ -148,6 +149,7 @@ export class State {
   problem = Problem.CLASSIFICATION;
   initZero = false;
   hideText = false;
+  embed = false; // COS 126: compact layout for a slide (embed=true in the URL)
   collectStats = false;
   numHiddenLayers = 0;
   hiddenLayerControls: any[] = [];

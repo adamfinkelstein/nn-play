@@ -382,6 +382,7 @@ function makeGUI() {
   });
 
   // Hide the text below the visualization depending on the URL.
+  d3.select("body").classed("embed", state.embed);
   if (state.hideText) {
     d3.select("#article-text").style("display", "none");
     d3.select("div.more").style("display", "none");

@@ -9,6 +9,8 @@ for Princeton's COS 126 (Precept 19). Live at <https://adamfinkelstein.github.io
   the X1 and X2 features, and "Show test data". No header text, article, or analytics.
 * Every hidden control can be shown again from the URL, e.g. `#noise_hide=false`, and any
   setting can be preset, e.g. `#noise=50&showTestData=true`.
+* `#embed=true` gives a compact layout (smaller header and top bar, no color legend or
+  footer) that fills a 16:9 slide when laid out 1100 px wide.
 * `npm ci && npm run build` builds `dist/`; pushing to the `cos126` branch publishes it.
 
 The original README follows.
